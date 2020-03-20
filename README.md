@@ -7,7 +7,7 @@ By [Hersel Giannella](https://hersel.it )
 
 
 ## Variants of the bot
-NebulaBot => https://github.com/hersel91/nebula
+NebulaBot => https://github.com/Infocom-Telegram-Community/nebula
 <br>
 ### How to start:
 Install requirements (https://github.com/FurryDen/zampa/blob/master/requirements.txt)
@@ -26,6 +26,6 @@ Use this command:
 <li><b>Ubuntu/Debian:</b> sudo apt-get install python-dev default-libmysqlclient-dev</li>
 </ul>
             
-### Documentation
-[ITA] https://hersel.it/zampadoc (Old Version)   
-**Important Note: This bot only works with python telegram bot 12.1.1**
+## License 📄
+
+Please read the [LICENSE](LICENSE) provided in this rep
