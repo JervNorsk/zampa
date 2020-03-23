@@ -7,8 +7,7 @@ __all__ = ["main_handler",
            "send_nudes",
            "custom_handler",
            "delete_buttons",
-           "super_ban_handler",
-           "add_group_handler"
+           "super_ban_handler"
            ]
 
 from core.modules.handler import *

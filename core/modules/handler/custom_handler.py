@@ -6,7 +6,6 @@ from random import random
 from time import sleep
 
 #This command calls the answers from the database, watch:/core/modules/commands/admin/insert_custom_handler.py
-@core.decorators.send_action.init
 def customhandler(update, context):
     connector = Connection()
     chatid = str(update.message.chat_id)

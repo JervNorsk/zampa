@@ -13,5 +13,5 @@ def init(update, context):
     connector.cur.execute(query, [message,chatid])
     connector.cur.close()
     connector.db.close()
-    bot.send_message(update.message.chat_id, text="<b>La fine del messaggio fissato è stata cambiata:</b>\n\n{}"
+    bot.send_message(update.message.chat_id, text="<b>Hai salvato il seguente pin per il tuo gruppo:</b>\n\n{}"
 			.format(message), parse_mode='HTML')

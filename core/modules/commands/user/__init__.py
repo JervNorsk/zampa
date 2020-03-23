@@ -5,14 +5,12 @@ __all__ = [
            "io", 
            "source", 
            "distro", 
-           "request_function", 
-           "community",
+           "request_function",
            "feedback", 
            "translate",
            "search_google",
            "search_qwant",
-           "weather",
-           "request_spam"
+           "weather"
            ]
 
 from core.modules.commands.user import *

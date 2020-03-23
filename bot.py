@@ -6,6 +6,7 @@
 
 # Python import for error handler and logging
 import logging
+from core.utility import error_handler
 
 # Import telegram library
 from telegram.ext import (
@@ -17,10 +18,9 @@ from telegram.ext import (
     Filters)
 
 # Import local files
-from core.modules import commands,handler
+import plugins
 from config import Config
-from core.utility import error_handler
-
+from core.modules import commands,handler
 
 # This enables the logs
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -38,13 +38,11 @@ def commandHandler(dispatcher):
     dispatcher.add_handler(CommandHandler("io", commands.user.io.init))
     dispatcher.add_handler(CommandHandler("distro", commands.user.distro.init))
     dispatcher.add_handler(CommandHandler("richiedi", commands.user.request_function.init))
-    dispatcher.add_handler(CommandHandler("community", commands.user.community.init))
     dispatcher.add_handler(CommandHandler("feedback", commands.user.feedback.init))
     dispatcher.add_handler(CommandHandler("traduci", commands.user.translate.init))
     dispatcher.add_handler(CommandHandler("google", commands.user.search_google.init))
     dispatcher.add_handler(CommandHandler("cerca", commands.user.search_qwant.init))
     dispatcher.add_handler(CommandHandler("meteo", commands.user.weather.init))
-    dispatcher.add_handler(CommandHandler("spam", commands.user.request_spam.init))
     
 #########################################################################
 #                           ADMIN COMMAND                               #
@@ -57,7 +55,6 @@ def commandHandler(dispatcher):
     dispatcher.add_handler(CommandHandler("silenzia", commands.admin.silence.init))
     dispatcher.add_handler(CommandHandler("desilenzia", commands.admin.unsilence.init))
     dispatcher.add_handler(CommandHandler("badword", commands.admin.insert_bad_words.init))
-    dispatcher.add_handler(CommandHandler("comunicazione", commands.admin.staff_announcement.init))
     dispatcher.add_handler(CommandHandler("kick", commands.admin.kick.init))
     dispatcher.add_handler(CommandHandler("info", commands.admin.get.init))
     dispatcher.add_handler(CommandHandler("setbattuta", commands.admin.insert_joke.init))
@@ -86,16 +83,24 @@ def commandHandler(dispatcher):
     dispatcher.add_handler(CommandHandler("server", commands.owner.server.init))
     dispatcher.add_handler(CommandHandler("test", commands.owner.test.init))
 
+#########################################################################
+#                           PLUGINS MODULES                             #
+#                   Decorator: @decorator.owner.init                    #
+#                           Source: /plugins                            #
+#                                                                       #
+#########################################################################
+    dispatcher.add_handler(CommandHandler("example", plugins.example.init))
+
+
+
+
+
 
 #########################################################################
 #                CALLBACKQUERY HANDLER(Buttons Update)                  #
 #########################################################################
 def callbackQueryHandler(dispatcher):
     dispatcher.add_handler(CallbackQueryHandler(handler.admin_command.resolved, pattern='resolved'))
-    #dispatcher.add_handler(CallbackQueryHandler(handler.welcome.community, pattern='community'))
-    dispatcher.add_handler(CallbackQueryHandler(commands.user.request_spam.update_yes, pattern='update_yes'))
-    dispatcher.add_handler(CallbackQueryHandler(commands.user.request_spam.update_no, pattern='update_no'))
-    dispatcher.add_handler(CallbackQueryHandler(commands.owner.test.init, pattern='testingclick'))
 
 #########################################################################
 #                              MAIN_HANDLER                             #

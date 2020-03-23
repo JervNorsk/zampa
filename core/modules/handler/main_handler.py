@@ -7,8 +7,7 @@ from . import (
     define, send_nudes, 
     bad_words, 
     welcome,
-	super_ban_handler,
-	add_group_handler
+	super_ban_handler
     )
 
 msg = ""
@@ -23,7 +22,6 @@ def init(update, context):
 
 	bad_words.init(update, context)
 	super_ban_handler.init(update, context)
-	#add_group_handler.init(update, context)
 	
 	if update.message is None or update.message.text is None:
 		return
