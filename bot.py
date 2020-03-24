@@ -89,11 +89,9 @@ def commandHandler(dispatcher):
 #                           Source: /plugins                            #
 #                                                                       #
 #########################################################################
-    dispatcher.add_handler(CommandHandler("example", plugins.example.init))
-
-
-
-
+    dispatcher.add_handler(CommandHandler(plugins.card.keywordCard, plugins.card.init))
+    dispatcher.add_handler(CommandHandler("e926", plugins.e926_search.init))
+    
 
 
 #########################################################################

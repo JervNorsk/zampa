@@ -3,7 +3,7 @@ from core.sql.db_connect import Connection
 from core.sql.commands_sql import Sql_Pin
 
 
-@core.decorators.admin.init
+@core.decorators.admin.user_admin
 @core.decorators.bot_admin.bot_admin
 @core.decorators.delete.init
 def init(update, context):

@@ -1,3 +1,3 @@
-__all__ = ["example"]
+__all__ = ["e926_search","card"]
 
 from plugins import *
