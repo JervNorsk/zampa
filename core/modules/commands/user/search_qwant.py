@@ -1,5 +1,4 @@
 import core.decorators
- 
 @core.decorators.public_command.init
 @core.decorators.delete.init
 def init(update, context):

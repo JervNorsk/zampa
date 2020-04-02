@@ -8,7 +8,6 @@ def init(update, context):
     bot = context.bot
     message = update.message.text[11:]
     connector = Connection()
-    
     query = Sql_Insert_J.SQL_1
     connector.cur.execute(query, [message])
     row = connector.cur.fetchone()
@@ -17,8 +16,8 @@ def init(update, context):
         connector.cur.execute(query,[message])
         connector.db.commit()
     else:
-        bot.send_message(update.message.chat_id, 
-                         text="<b>Perfavore inserisci un'altra battuta questa esiste già!</b>", 
+        bot.send_message(update.message.chat_id,
+                         text="<b>Perfavore inserisci un'altra battuta questa esiste già!</b>",
                          parse_mode='HTML')
         connector.cur.close()
         connector.db.close()

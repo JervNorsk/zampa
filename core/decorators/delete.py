@@ -1,7 +1,6 @@
 from functools import wraps
-from telegram import User, Chat, ChatMember, Update, Bot
+from telegram import Chat
 
-#DELETE COMMAND
 def init(func):
     @wraps(func)
     def wrapped(update, context):

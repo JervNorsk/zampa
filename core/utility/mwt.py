@@ -1,7 +1,6 @@
 import time
 #CKASS MWT FOR AUTOMATIC ADMIN ONLY COMMAND
 class MWT(object):
-    """Memoize With Timeout"""
     _caches = {}
     _timeouts = {}
 
@@ -9,7 +8,6 @@ class MWT(object):
         self.timeout = timeout
 
     def collect(self):
-        """Clear cache of results which have timed out"""
         for func in self._caches:
             cache = {}
             for key in self._caches[func]:
@@ -39,5 +37,4 @@ class MWT(object):
 
 @MWT(timeout=1*1)
 def get_admin_ids(bot, chat_id):
-    """Returns a list of admin IDs for a given chat. Results are cached for 1 hour."""
     return [admin.user.id for admin in bot.get_chat_administrators(chat_id)]

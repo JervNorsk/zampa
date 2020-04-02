@@ -9,7 +9,7 @@ activationWords = ["regole", "regola", "regolamento", "rules"]
 def action(update, context):
     bot = context.bot
     connector = Connection()
-    chatid = str(update.message.chat_id) 
+    chatid = str(update.message.chat_id)
     query = Sql_Rules.SQL
     connector.cur.execute(query,[chatid])
     row = connector.cur.fetchone()

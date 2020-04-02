@@ -31,6 +31,6 @@ def init(update, context):
         bot.kick_chat_member(update.message.chat_id,
                          update.message.reply_to_message.from_user.id)
     else:
-        bot.send_message(update.message.chat_id, 
+        bot.send_message(update.message.chat_id,
                          text="<b>Attenzione devi specificare il motivo del ban!</b>",
                          parse_mode='HTML')

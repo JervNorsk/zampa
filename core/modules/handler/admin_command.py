@@ -1,17 +1,14 @@
 import core.decorators
 from config import Config
 from core.utility.strings import str_admin_command
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
- 
+
 @core.decorators.public_command.init
 def init(update, context):
     bot = context.bot
-    
     keyboard = [[InlineKeyboardButton("Risolto✅", callback_data='resolved')]]
     reply_markup = InlineKeyboardMarkup(keyboard)
     message = update.message.text[7:]
-    
     if message != "":
         chatid = str(update.message.chat.id)[3:]
         update.message.reply_text("<b>Segnalazione effettuata!\nUn admin prenderà in carico la tua richiesta</b>",
@@ -25,7 +22,6 @@ def init(update, context):
         linkurl="https://t.me/c/"),
         parse_mode='HTML',
         reply_markup=reply_markup)
-        
         bot.send_message(Config.LOG_CHANNEL,str_admin_command.HELP_MESSAGE
         .format(message,
         username="@"+update.message.from_user.username,

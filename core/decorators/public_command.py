@@ -1,5 +1,3 @@
-from functools import wraps
-#PUBLIC COMMAND
 def init(fn):
   def wrapper(*args,**kwargs):
     message = args[0].message

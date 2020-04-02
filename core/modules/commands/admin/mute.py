@@ -1,5 +1,4 @@
 import core.decorators
-import time
 from config import Config
 from telegram.ext.dispatcher import run_async
 from telegram import ChatPermissions
@@ -29,6 +28,6 @@ def init(update, context):
                 motivation=var_message)
                 , parse_mode='HTML')
     else:
-        bot.send_message(update.message.chat_id, 
+        bot.send_message(update.message.chat_id,
                          text="<b>Attenzione devi specificare il motivo del muta!</b>",
                          parse_mode='HTML')

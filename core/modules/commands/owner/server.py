@@ -3,7 +3,6 @@ import core.decorators
 import psutil
 from core.utility.strings import str_service
 
-#Server info 
 @core.decorators.owner.init
 @core.decorators.delete.init
 def init(update, context):

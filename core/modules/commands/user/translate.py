@@ -1,4 +1,3 @@
-import json
 from config import Config
 from flaky import flaky
 from yandex.Translater import Translater
@@ -16,4 +15,3 @@ def init(update, context):
         bot.send_message(update.message.chat_id, tr.translate())
     except:
         bot.send_message(update.message.chat_id,text="Perfavore inserisci una frase.")
-        

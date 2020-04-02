@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-SERVER_MESSAGE="<b>SERVER STATUS</b>\n<b>CPU:</b> <code>{cpu}%</code>\n<b>RAM:</b> <code>{ram}%</code>"
+SERVER_MESSAGE="<b>SERVER STATUS</b>\n<b>CPU:</b> <code>{cpu}%</code>\n<b>RAM:</b> <code>{ram}%</code>\nARIAN status: {x}"
 DEFAULT_WELCOME="Ti diamo il Benvenuto {username} su {chat}"
 INSERT_W = "<b>Attenzione non puoi inserire un welcome vuoto!\nISTRUZIONI: Puoi utilizzare i seguenti parametri:\n <code>{username};{first_name};{chat_name}</code></b>"
 GET_MESSAGE = "<b>INFORMAZIONI UTENTE</b>\n\nUSERNAME: {username}\nID: <code>{id}</code>\nGRUPPO: {chat_title}\nCHAT_ID: <code>{idchat}</code>"

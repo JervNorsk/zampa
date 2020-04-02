@@ -6,21 +6,25 @@
 
 # Python import for error handler and logging
 import logging
+from datetime import datetime
 from core.utility import error_handler
 
 # Import telegram library
 from telegram.ext import (
-    Updater, 
-    CommandHandler, 
-    MessageHandler, 
+    Updater,
+    CommandHandler,
+    MessageHandler,
     CallbackQueryHandler,
-    ConversationHandler, 
+    ConversationHandler,
     Filters)
 
 # Import local files
 import plugins
 from config import Config
 from core.modules import commands,handler
+
+timestamp = datetime.strftime(datetime.today(), '%H:%M at %d/%m/%Y')
+print("Start Bot {}".format(timestamp))
 
 # This enables the logs
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -43,7 +47,8 @@ def commandHandler(dispatcher):
     dispatcher.add_handler(CommandHandler("google", commands.user.search_google.init))
     dispatcher.add_handler(CommandHandler("cerca", commands.user.search_qwant.init))
     dispatcher.add_handler(CommandHandler("meteo", commands.user.weather.init))
-    
+    dispatcher.add_handler(CommandHandler("wikipedia", commands.user.define.init))
+
 #########################################################################
 #                           ADMIN COMMAND                               #
 #                   Decorator: @decorator.admin.init                    #
@@ -85,13 +90,12 @@ def commandHandler(dispatcher):
 
 #########################################################################
 #                           PLUGINS MODULES                             #
-#                   Decorator: @decorator.owner.init                    #
+#                                                                       #
 #                           Source: /plugins                            #
 #                                                                       #
 #########################################################################
     dispatcher.add_handler(CommandHandler(plugins.card.keywordCard, plugins.card.init))
     dispatcher.add_handler(CommandHandler("e926", plugins.e926_search.init))
-    
 
 
 #########################################################################
@@ -107,14 +111,14 @@ def callbackQueryHandler(dispatcher):
 #########################################################################
 def messageHandler(dispatcher):
     dispatcher.add_handler(MessageHandler(None, handler.main_handler.init))
-    
+
 # This is the function that initializes the bot
 def main():
-    updater = Updater(Config.BOT_TOKEN, use_context=True)
+    updater = Updater(Config.BOT_API, use_context=True)
     dp = updater.dispatcher
     #########################################################################
     #                          FILTERS HANDLER                              #
-    ######################################################################### 
+    #########################################################################
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, handler.welcome.init))
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("list", handler.delete_buttons.init)],
@@ -124,19 +128,17 @@ def main():
         fallbacks=[CommandHandler("cancel", handler.delete_buttons.cancel)]
     )
     dp.add_handler(conv_handler)
-    commandHandler(dp) 
+    commandHandler(dp)
     callbackQueryHandler(dp)
     messageHandler(dp)
-
 
 #########################################################################
 #                          ERROR HANDLER                                #
 #########################################################################
     dp.add_error_handler(error_handler.error)
-    
 #########################################################################
 #                  START POLLING TELEGRAM API                           #
-#########################################################################   
+#########################################################################
     updater.start_polling()
     updater.idle()
 

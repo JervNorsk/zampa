@@ -4,7 +4,7 @@ from core.sql.handler_sql import Sql_Super_Ban
 #SuperBan
 def init(update, context):
     bot = context.bot
-    connector = Connection() 
+    connector = Connection()
     ban_user = str(update.effective_user.id)
     query = Sql_Super_Ban.SQL
     connector.cur.execute(query, [ban_user])

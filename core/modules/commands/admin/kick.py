@@ -13,6 +13,6 @@ def init(update, context):
         bot.send_message(chat_id=Config.LOG_CHANNEL,
                      text="<b>UTENTE KICKATO</b>\n\nUSERNAME: {username}\nID: <code>{id}</code>\nGRUPPO: {chat_title}"
                      .format(username="@" + update.message.reply_to_message.from_user.username,
-                             id=update.message.reply_to_message.from_user.id, 
+                             id=update.message.reply_to_message.from_user.id,
                              chat_title=update.message.chat.title)
                      , parse_mode='HTML')

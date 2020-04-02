@@ -3,13 +3,12 @@ from core.sql.db_connect import Connection
 from core.sql.commands_sql import Sql_Add_Buttons
 from core.utility.strings import str_service
 
-
 @core.decorators.admin.user_admin
 @core.decorators.public_command.init
 @core.decorators.delete.init
 def init(update, context):
     bot = context.bot
-    chatid = str(update.message.chat_id) 
+    chatid = str(update.message.chat_id)
     button_text = update.message.text[4:].strip()
     if button_text != "":
         x = button_text.split(',')

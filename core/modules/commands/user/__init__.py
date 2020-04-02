@@ -1,16 +1,17 @@
 __all__ = [
-           "help", 
-           "start", 
-           "rules", 
-           "io", 
-           "source", 
-           "distro", 
+           "help",
+           "start",
+           "rules",
+           "io",
+           "source",
+           "distro",
            "request_function",
-           "feedback", 
+           "feedback",
            "translate",
            "search_google",
            "search_qwant",
-           "weather"
+           "weather",
+           "define"
            ]
 
 from core.modules.commands.user import *

@@ -9,8 +9,7 @@ def init(update, context):
                                           "<b>Linguaggio:</b> <em>Python</em>\n\n"
                                           "<b>Versione</b>:<em>{source}</em>\n\n"
                                           "<b>Developer</b>:<em>{author}</em>\n\n"
-                                            "<b>Sorgente</b>:<a href=\"{repo}\"> GitHub</a>\n\n"
-                                          "<b>Sito Web</b>:  <a href=\"https://hersel.it\">hersel.it</a> "
+                                            "<b>Sorgente</b>:<a href=\"{repo}\"> GitHub</a>"
                                           .format(source=Config.VERSION,
                                                   repo=Config.SOURCE,
                                                   author=Config.AUTHOR),

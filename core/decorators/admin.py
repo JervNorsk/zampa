@@ -1,7 +1,7 @@
 import os
 from config import Config
 from functools import wraps
-from telegram import User, Chat, ChatMember, Update, Bot
+from telegram import User, Chat, ChatMember
 
 DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
 LIST_OF_ADMINS = Config.ADMIN_ID
@@ -32,7 +32,7 @@ def is_user_admin(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
 def user_admin(func):
     @wraps(func)
     def is_admin(update, context, *args, **kwargs):
-        user = update.effective_user  # type: Optional[User]
+        user = update.effective_user
         if user and is_user_admin(update.effective_chat, user.id):
             return func(update, context, *args, **kwargs)
 
