@@ -6,7 +6,7 @@ class Config(object):
     BOT_USER = " @usernamebot"
     BOT_NAME = "zampa"
     AUTHOR = " FurryDen Project"
-    VERSION = " 16.1.0(Rinoceronte)"
+    VERSION = " 16.1.1(Rinoceronte)"
     SOURCE = "https://github.com/FurryDen/zampa"
     #########################################################################
     #                            TELEGRAM CONFIG                            #
