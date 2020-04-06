@@ -121,7 +121,7 @@ def main():
     #########################################################################
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, handler.welcome.init))
     conv_handler = ConversationHandler(
-        entry_points=[CommandHandler("list", handler.delete_buttons.init)],
+        entry_points=[CommandHandler("listbutton", handler.delete_buttons.init)],
         states={
             handler.delete_buttons.RECEIVE_ID: [MessageHandler(Filters.text & (~ Filters.command), handler.delete_buttons.receive_id)]
         },
