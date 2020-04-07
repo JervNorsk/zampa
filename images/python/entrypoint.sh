@@ -20,6 +20,11 @@ mysql $MYSQL_DATABASE < SQL/admin_nebulabot.sql
 echo "Configuring bot"
 cat config.tmp.py \
   | sed "s/%BOT_API%/$BOT_API/g" \
+  | sed "s/%BOT_USER%/$BOT_USER/g" \
+  | sed "s/%BOT_NAME%/$BOT_NAME/g" \
+  | sed "s/%AUTHOR%/$AUTHOR/g" \
+  | sed "s/%VERSION%/$VERSION/g" \
+  | sed "s/%SOURCE%/$SOURCE/g" \
   \
   | sed "s/%OWNER%/$OWNER/g" \
   | sed "s/%STAFF_GROUP%/$STAFF_GROUP/g" \
