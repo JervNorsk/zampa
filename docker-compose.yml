@@ -1,1 +1,26 @@
 version: '3.7'
+
+services:
+  devBot:
+    image: infocom/nebula:python
+    environment:
+#########################################################################
+#                            GENERAL CONFIG                             #
+#########################################################################
+      BOT_API: $BOT_API
+      BOT_USER: $BOT_USER
+      BOT_NAME: $BOT_NAME
+      AUTHOR: $USER
+      VERSION: devel
+      SOURCE: $SOURCE
+#########################################################################
+#                            TELEGRAM CONFIG                            #
+#########################################################################
+      STAFF_GROUP: $STAFF_GROUP
+      ADMIN_ID: $ADMIN_ID
+      OWNER: $OWNER
+      LOG_CHANNEL: $LOG_CHANNEL
+#########################################################################
+#                            DATABASE CONFIG                            #
+#########################################################################
+      MYSQL_DATABASE: debug
