@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  python:
+    image: infocom/nebula:python
+    build:
+      context: python
+      args:
+        USERNAME: $DEV_USERNAME
+        PASSWORD: $DEV_PASSWORD
+        VCS: $VCS_TYPE
+        REPOSITORY: $VCS_REPOSITORY
+    environment:
+      BOT_API: $BOT_API
+      STAFF_GROUP: $STAFF_GROUP
+      ADMIN_ID: $ADMIN_ID
+      OWNER: $OWNER
+      LOG_CHANNEL: $LOG_CHANNEL
+      MYSQL_DATABASE: debug
