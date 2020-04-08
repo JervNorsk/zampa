@@ -17,6 +17,8 @@ DEV_PASSWORD=test
 VCS_TYPE=git
 VCS_REPOSITORY=https://github.com/Infocom-Telegram-Community/nebula.git
 
+DEBUG=true
+
 #########################################################################
 #                            GENERAL CONFIG                             #
 #########################################################################
