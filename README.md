@@ -8,7 +8,39 @@ Nebula Docker Server
 ### Configuration
 Change the `.env` file on root folder
 
-### Start
+```properties
+#########################################################################
+#                            DOCKER CONFIG                              #
+#########################################################################
+DEV_USERNAME=developer
+DEV_PASSWORD=test
+VCS_TYPE=git
+VCS_REPOSITORY=https://github.com/Infocom-Telegram-Community/nebula.git
+
+#########################################################################
+#                            GENERAL CONFIG                             #
+#########################################################################
+SOURCE=https://github.com/Infocom-Telegram-Community/nebula.git
+AUTHOR=JervNorsk
+VERSION=0.0.1
+
+#########################################################################
+#                            BOT CONFIG                                 #
+#########################################################################
+BOT_TOKEN=<token>
+BOT_ID=@nebuladevbot
+BOT_NAME=NebulaDevBot
+
+#########################################################################
+#                            TELEGRAM CONFIG                            #
+#########################################################################
+STAFF_GROUP=-<group_id>
+ADMIN_ID=[<user_id>, ...]
+OWNER=[<user_id>, ...]
+LOG_CHANNEL=-<channel_id>
+```
+
+####Start
 Use these steps for build and start the server:
 1. `docker-compose -f images/docker-compose.yml build`
-1. `BOT_API=<token> docker-compose -f images/docker-compose.yml run --rm python`
+1. `docker-compose run devBot`
