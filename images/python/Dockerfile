@@ -31,4 +31,4 @@ ENV USER=$USERNAME
 ENV MYSQL_USERNAME=$USERNAME
 ENV MYSQL_PASSWORD=$PASSWORD
 
-CMD /srv/docker/entrypoint.sh
+CMD "/srv/docker/entrypoint.sh"

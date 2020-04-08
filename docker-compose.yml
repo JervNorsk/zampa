@@ -11,7 +11,7 @@ services:
       BOT_USER: $BOT_USER
       BOT_NAME: $BOT_NAME
       AUTHOR: $USER
-      VERSION: devel
+      VERSION: $VERSION
       SOURCE: $SOURCE
 #########################################################################
 #                            TELEGRAM CONFIG                            #

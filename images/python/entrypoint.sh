@@ -19,21 +19,21 @@ mysql $MYSQL_DATABASE < SQL/admin_nebulabot.sql
 
 echo "Configuring bot"
 cat config.tmp.py \
-  | sed "s/%BOT_API%/$BOT_API/g" \
-  | sed "s/%BOT_USER%/$BOT_USER/g" \
-  | sed "s/%BOT_NAME%/$BOT_NAME/g" \
-  | sed "s/%AUTHOR%/$AUTHOR/g" \
-  | sed "s/%VERSION%/$VERSION/g" \
-  | sed "s/%SOURCE%/$SOURCE/g" \
+  | sed "s;%BOT_API%;$BOT_API;g" \
+  | sed "s;%BOT_USER%;$BOT_USER;g" \
+  | sed "s;%BOT_NAME%;$BOT_NAME;g" \
+  | sed "s;%AUTHOR%;$AUTHOR;g" \
+  | sed "s;%VERSION%;$VERSION;g" \
+  | sed "s;%SOURCE%;$SOURCE;g" \
   \
-  | sed "s/%OWNER%/$OWNER/g" \
-  | sed "s/%STAFF_GROUP%/$STAFF_GROUP/g" \
-  | sed "s/%ADMIN_ID%/$ADMIN_ID/g" \
-  | sed "s/%LOG_CHANNEL%/$LOG_CHANNEL/g" \
+  | sed "s;%OWNER%;$OWNER;g" \
+  | sed "s;%STAFF_GROUP%;$STAFF_GROUP;g" \
+  | sed "s;%ADMIN_ID%;$ADMIN_ID;g" \
+  | sed "s;%LOG_CHANNEL%;$LOG_CHANNEL;g" \
   \
-  | sed "s/%MYSQL_USERNAME%/$MYSQL_USERNAME/g" \
-  | sed "s/%MYSQL_PASSWORD%/$MYSQL_PASSWORD/g" \
-  | sed "s/%MYSQL_DATABASE%/$MYSQL_DATABASE/g" \
+  | sed "s;%MYSQL_USERNAME%;$MYSQL_USERNAME;g" \
+  | sed "s;%MYSQL_PASSWORD%;$MYSQL_PASSWORD;g" \
+  | sed "s;%MYSQL_DATABASE%;$MYSQL_DATABASE;g" \
   > config.py
 
 python3 bot.py
