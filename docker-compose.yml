@@ -17,6 +17,10 @@ services:
       BOT_USER: $BOT_ID
       BOT_NAME: $BOT_NAME
 #########################################################################
+#                            DATABASE CONFIG                            #
+#########################################################################
+      MYSQL_DATABASE: bot
+#########################################################################
 #                            TELEGRAM CONFIG                            #
 #########################################################################
       STAFF_GROUP: $STAFF_GROUP
@@ -24,6 +28,7 @@ services:
       OWNER: $OWNER
       LOG_CHANNEL: $LOG_CHANNEL
 #########################################################################
-#                            DATABASE CONFIG                            #
+#                            API CONFIG                                 #
 #########################################################################
-      MYSQL_DATABASE: bot
+      YANDEX_API: $YANDEX_TOKEN
+      OPENWEATHER_API: $OPENWEATHER_TOKEN

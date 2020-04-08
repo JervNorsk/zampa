@@ -38,6 +38,12 @@ STAFF_GROUP=-<group_id>
 ADMIN_ID=[<user_id>, ...]
 OWNER=[<user_id>, ...]
 LOG_CHANNEL=-<channel_id>
+
+#########################################################################
+#                            API CONFIG                                 #
+#########################################################################
+YANDEX_TOKEN=<token>
+OPENWEATHER_TOKEN=<token>
 ```
 
 ####Start
