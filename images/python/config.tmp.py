@@ -11,10 +11,10 @@ class Config(object):
     #########################################################################
     #                            TELEGRAM CONFIG                            #
     #########################################################################
-    STAFF_GROUP = '%STAFF_GROUP%'
-    ADMIN_ID = '%ADMIN_ID%'
-    OWNER = '%OWNER%'
-    LOG_CHANNEL = '%LOG_CHANNEL%'
+    STAFF_GROUP = %STAFF_GROUP%
+    ADMIN_ID = %ADMIN_ID%
+    OWNER = %OWNER%
+    LOG_CHANNEL = %LOG_CHANNEL%
     #########################################################################
     #                            API CONFIG                                 #
     #########################################################################
