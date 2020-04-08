@@ -25,7 +25,7 @@ services:
       MYSQL_USERNAME: $MYSQL_USERNAME
       MYSQL_PASSWORD: $MYSQL_PASSWORD
       MYSQL_DATABASE: $MYSQL_DATABASE
-      USE_INTERNAL_MYSQL: $$USE_INTERNAL_MYSQL
+      USE_INTERNAL_MYSQL: $USE_INTERNAL_MYSQL
 #########################################################################
 #                            TELEGRAM CONFIG                            #
 #########################################################################

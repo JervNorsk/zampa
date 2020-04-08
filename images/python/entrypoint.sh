@@ -5,7 +5,7 @@ then
     set -x
 fi
 
-if [[ -n $USE_INTERNAL_MYSQL ]]
+if [[ $USE_INTERNAL_MYSQL == "true" ]]
 then
     mkdir /srv/docker/database -p
     echo "
