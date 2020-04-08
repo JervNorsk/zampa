@@ -1,21 +1,29 @@
 #!/usr/bin/env bash
 
-mkdir /srv/docker/database -p
-echo "
-CREATE USER '$MYSQL_USERNAME'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD';
-GRANT ALL PRIVILEGES ON * . * TO '$MYSQL_USERNAME'@'localhost';
-FLUSH PRIVILEGES;
+if [[ $DEBUG == 'true' ]]
+then
+    set -x
+fi
 
-CREATE DATABASE $MYSQL_DATABASE;
-" > /srv/docker/database/entrypoint.sql
+if [[ -n $USE_INTERNAL_MYSQL ]]
+then
+    mkdir /srv/docker/database -p
+    echo "
+    CREATE USER '$MYSQL_USERNAME'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD';
+    GRANT ALL PRIVILEGES ON * . * TO '$MYSQL_USERNAME'@'localhost';
+    FLUSH PRIVILEGES;
 
-service mysql start
+    CREATE DATABASE $MYSQL_DATABASE;
+    " > /srv/docker/database/entrypoint.sql
 
-echo "Configuring MySQL"
-mysql < /srv/docker/database/entrypoint.sql
+    service mysql start
 
-echo "Dumping MySQL"
-mysql $MYSQL_DATABASE < SQL/admin_nebulabot.sql
+    echo "Configuring MySQL"
+    mysql < /srv/docker/database/entrypoint.sql
+
+    echo "Dumping MySQL"
+    mysql $MYSQL_DATABASE < SQL/admin_nebulabot.sql
+fi
 
 echo "Configuring bot"
 cat config.tmp.py \
@@ -27,6 +35,7 @@ cat config.tmp.py \
   | sed "s;%BOT_USER%;$BOT_USER;g" \
   | sed "s;%BOT_NAME%;$BOT_NAME;g" \
   \
+  | sed "s;%MYSQL_SERVER%;$MYSQL_SERVER;g" \
   | sed "s;%MYSQL_USERNAME%;$MYSQL_USERNAME;g" \
   | sed "s;%MYSQL_PASSWORD%;$MYSQL_PASSWORD;g" \
   | sed "s;%MYSQL_DATABASE%;$MYSQL_DATABASE;g" \

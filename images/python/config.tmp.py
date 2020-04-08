@@ -24,7 +24,7 @@ class Config(object):
     #                            DATABASE CONFIG                            #
     #########################################################################
     DATABASE_CONFIG = {
-        'server': 'localhost',
+        'server': '%MYSQL_SERVER%',
         'user': '%MYSQL_USERNAME%',
         'password': '%MYSQL_PASSWORD%',
         'name': '%MYSQL_DATABASE%',

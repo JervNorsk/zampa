@@ -32,6 +32,16 @@ BOT_ID=@nebuladevbot
 BOT_NAME=NebulaDevBot
 
 #########################################################################
+#                            DATABASE CONFIG                            #
+#########################################################################
+MYSQL_SERVER=localhost
+MYSQL_USERNAME=developer
+MYSQL_PASSWORD=test
+MYSQL_DATABASE=bot
+
+USE_INTERNAL_MYSQL=true
+
+#########################################################################
 #                            TELEGRAM CONFIG                            #
 #########################################################################
 STAFF_GROUP=-<group_id>

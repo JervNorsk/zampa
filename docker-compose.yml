@@ -4,6 +4,8 @@ services:
   devBot:
     image: infocom/nebula:python
     environment:
+      DEBUG: $DEBUG
+
 #########################################################################
 #                            GENERAL CONFIG                             #
 #########################################################################
@@ -19,7 +21,11 @@ services:
 #########################################################################
 #                            DATABASE CONFIG                            #
 #########################################################################
-      MYSQL_DATABASE: bot
+      MYSQL_SERVER: $MYSQL_SERVER
+      MYSQL_USERNAME: $MYSQL_USERNAME
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      USE_INTERNAL_MYSQL: $$USE_INTERNAL_MYSQL
 #########################################################################
 #                            TELEGRAM CONFIG                            #
 #########################################################################
