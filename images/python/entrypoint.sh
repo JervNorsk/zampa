@@ -45,8 +45,8 @@ cat config.tmp.py \
   | sed "s;%OWNER%;$OWNER;g" \
   | sed "s;%LOG_CHANNEL%;$LOG_CHANNEL;g" \
   \
-  | sed "s;%YANDEX_API%;$YANDEX_TOKEN;g" \
-  | sed "s;%OPENWEATHER_API%;$OPENWEATHER_TOKEN;g" \
+  | sed "s;%YANDEX_API%;$YANDEX_API;g" \
+  | sed "s;%OPENWEATHER_API%;$OPENWEATHER_API;g" \
   > config.py
 
 python3 bot.py
