@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   python:
-    image: infocom/nebula:python
+    image: furryden/zampa:python
     build:
       context: python
       args:

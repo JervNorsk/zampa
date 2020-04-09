@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  devBot:
-    image: infocom/nebula:python
+  bot:
+    image: furryden/zampa:python
     environment:
       DEBUG: $DEBUG
 
